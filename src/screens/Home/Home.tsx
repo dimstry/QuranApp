@@ -114,7 +114,7 @@ const Home = ({navigation}: any) => {
         {/* list surah card */}
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('Surah', {
+            navigation.navigate('SurahPage', {
               surahId: 1,
             });
           }}>

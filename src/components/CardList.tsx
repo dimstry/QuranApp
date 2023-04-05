@@ -35,7 +35,7 @@ const CardList = () => {
             style={{
               position: 'absolute',
               fontSize: 18,
-              fontFamily: 'Poppins-Bold',
+              fontFamily: 'Poppins-SemiBold',
               color: '#240F4F',
               top: 2,
               left: 0,
