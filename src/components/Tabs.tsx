@@ -18,7 +18,7 @@ const Tabs = ({navigation}: any) => {
         },
       }}>
       <Tab.Screen
-        name="Home"
+        name="HomePage"
         component={Home}
         options={{
           // padding di kiri kanan

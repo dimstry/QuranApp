@@ -39,7 +39,7 @@ const Home = ({navigation}: any) => {
           marginTop: 10,
           position: 'relative',
           width: '100%',
-          height: '25%',
+          height: '30%',
         }}>
         <Image
           source={require('../../assets/images/CardFrame.png')}
@@ -83,11 +83,11 @@ const Home = ({navigation}: any) => {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              marginTop: 30,
+              marginTop: 25,
             }}>
             <Text
               style={{
-                fontSize: 25,
+                fontSize: 20,
                 fontFamily: 'Poppins-Bold',
                 color: '#fff',
               }}>
@@ -95,7 +95,7 @@ const Home = ({navigation}: any) => {
             </Text>
             <Text
               style={{
-                fontSize: 19,
+                fontSize: 15,
                 fontFamily: 'Poppins-regular',
                 color: '#fff',
               }}>
@@ -116,6 +116,7 @@ const Home = ({navigation}: any) => {
           onPress={() => {
             navigation.navigate('SurahPage', {
               surahId: 1,
+              name: 'Al-Fatihah',
             });
           }}>
           <CardList />

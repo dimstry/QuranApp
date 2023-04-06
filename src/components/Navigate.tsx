@@ -1,6 +1,8 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {StatusBar} from 'react-native';
+import {Image, StatusBar, Text} from 'react-native';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -29,11 +31,25 @@ function Navigate() {
           }}
         />
         <Stack.Screen
-          name="Surah1"
+          name="SurahPage"
           component={Surah}
-          options={{
-            headerShown: false,
-          }}
+          options={({route}) => ({
+            title: route.params?.name,
+            headerTitleStyle: {
+              fontFamily: 'Poppins-Bold',
+              fontSize: 20,
+              color: '#672CBC',
+            },
+            headerRight: () => (
+              <Image
+                source={require('../assets/logo/Search.png')}
+                style={{
+                  width: 24,
+                  height: 24,
+                }}
+              />
+            ),
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>

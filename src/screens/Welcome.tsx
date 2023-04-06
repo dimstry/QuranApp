@@ -19,7 +19,7 @@ const Welcome = ({navigation}: any) => {
           fontSize: 28,
           fontFamily: 'Poppins-Bold',
           color: '#672CBC',
-          marginTop: 90,
+          marginTop: 20,
         }}>
         Quran App
       </Text>
@@ -38,7 +38,7 @@ const Welcome = ({navigation}: any) => {
           position: 'relative',
           width: 314,
           height: 450,
-          marginTop: 40,
+          marginTop: 20,
         }}>
         <Image
           source={require('../assets/images/Hero.png')}
