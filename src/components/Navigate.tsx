@@ -2,16 +2,17 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {Image, StatusBar, Text} from 'react-native';
+import {Image, StatusBar, Text, TouchableOpacity} from 'react-native';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Surah from '../screens/Surah/Surah';
 import Tabs from './Tabs';
 import Welcome from '../screens/Welcome';
+import Search from '../screens/Search/Search';
 const Stack = createNativeStackNavigator();
 
-function Navigate() {
+function Navigate({navigation}: {navigation: any}) {
   return (
     <NavigationContainer>
       <StatusBar barStyle={'dark-content'} backgroundColor={'#ffffff'} />
@@ -40,16 +41,36 @@ function Navigate() {
               fontSize: 20,
               color: '#672CBC',
             },
+            headerShadowVisible: false,
             headerRight: () => (
-              <Image
-                source={require('../assets/logo/Search.png')}
-                style={{
-                  width: 24,
-                  height: 24,
-                }}
-              />
+              <TouchableOpacity>
+                <Image
+                  source={require('../assets/logo/Search.png')}
+                  style={{
+                    width: 24,
+                    height: 24,
+                  }}
+                />
+              </TouchableOpacity>
             ),
           })}
+        />
+        <Stack.Screen
+          name="SearchPage"
+          component={Search}
+          options={{
+            headerShadowVisible: false,
+            headerTitle: () => (
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontFamily: 'Poppins-Bold',
+                  color: '#672CBC',
+                }}>
+                Search
+              </Text>
+            ),
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

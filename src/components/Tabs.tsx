@@ -28,8 +28,6 @@ const Tabs = ({navigation}: any) => {
           headerLeftContainerStyle: {
             paddingLeft: 15,
           },
-          // header title di kiri
-          // shadow di header
           headerShadowVisible: false,
           headerTitleAlign: 'left',
           headerTitle: () => (
@@ -59,7 +57,7 @@ const Tabs = ({navigation}: any) => {
           headerRight: () => (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('Search');
+                navigation.navigate('SearchPage');
               }}>
               <Image
                 source={require('../assets/logo/Search.png')}

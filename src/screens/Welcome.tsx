@@ -1,76 +1,82 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import {Image} from 'react-native';
 
 const Welcome = ({navigation}: any) => {
   return (
-    <View
+    <ScrollView
       style={{
         flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 10,
         backgroundColor: '#fff',
       }}>
-      <Text
-        style={{
-          fontSize: 28,
-          fontFamily: 'Poppins-Bold',
-          color: '#672CBC',
-          marginTop: 20,
-        }}>
-        Quran App
-      </Text>
-      <Text
-        style={{
-          fontSize: 18,
-          fontFamily: 'Poppins-Regular',
-          color: '#8789A3',
-          paddingHorizontal: 100,
-          textAlign: 'center',
-        }}>
-        Learn Quran and Recite once everyday
-      </Text>
       <View
         style={{
-          position: 'relative',
-          width: 314,
-          height: 450,
-          marginTop: 20,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 10,
+          backgroundColor: '#fff',
+          paddingBottom: 100,
         }}>
-        <Image
-          source={require('../assets/images/Hero.png')}
+        <Text
           style={{
-            width: '100%',
-            height: '100%',
-          }}
-        />
-        <TouchableOpacity
-          style={{
-            position: 'absolute',
-            bottom: -25,
-            alignSelf: 'center',
-            backgroundColor: '#F9B091',
-            borderRadius: 50,
-            paddingHorizontal: 50,
-            paddingVertical: 15,
-          }}
-          onPress={() => {
-            navigation.navigate('Home');
+            fontSize: 28,
+            fontFamily: 'Poppins-Bold',
+            color: '#672CBC',
+            marginTop: 40,
           }}>
-          <Text
+          Quran App
+        </Text>
+        <Text
+          style={{
+            fontSize: 18,
+            fontFamily: 'Poppins-Regular',
+            color: '#8789A3',
+            paddingHorizontal: 100,
+            textAlign: 'center',
+          }}>
+          Learn Quran and Recite once everyday
+        </Text>
+        <View
+          style={{
+            position: 'relative',
+            width: 314,
+            height: 450,
+            marginTop: 20,
+          }}>
+          <Image
+            source={require('../assets/images/Hero.png')}
             style={{
-              fontSize: 18,
-              fontFamily: 'poppins-Bold',
-              color: '#fff',
+              width: '100%',
+              height: '100%',
+            }}
+          />
+          <TouchableOpacity
+            style={{
+              position: 'absolute',
+              bottom: -25,
+              alignSelf: 'center',
+              backgroundColor: '#F9B091',
+              borderRadius: 50,
+              paddingHorizontal: 50,
+              paddingVertical: 15,
+            }}
+            onPress={() => {
+              navigation.navigate('Home');
             }}>
-            Get Started
-          </Text>
-        </TouchableOpacity>
+            <Text
+              style={{
+                fontSize: 18,
+                fontFamily: 'poppins-Bold',
+                color: '#fff',
+              }}>
+              Get Started
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

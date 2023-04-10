@@ -2,7 +2,7 @@
 import React from 'react';
 import {View, Text, ScrollView, Image} from 'react-native';
 
-const Surah = ({navigation, route}: any) => {
+const Surah = ({route}: any) => {
   const {name} = route.params;
   return (
     <ScrollView>
@@ -87,7 +87,6 @@ const Surah = ({navigation, route}: any) => {
         </View>
         {/* end header */}
         {/* content */}
-
         <View
           style={{
             display: 'flex',
