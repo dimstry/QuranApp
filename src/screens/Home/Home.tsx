@@ -130,25 +130,30 @@ const Home = ({navigation}: any) => {
           marginTop: 35,
         }}>
         {/* list surah card */}
-        {data.map((item: any) => {
-          return (
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate('SurahPage', {
-                  surahId: item.number,
-                  name: item.englishName,
-                });
-              }}>
-              <CardList
-                noSurah={item.number}
-                name={item.name}
-                nameTranslate={item.englishName}
-                numberOfAyat={item.numberOfAyahs}
-                city={item.revelationType}
-              />
-            </TouchableOpacity>
-          );
-        })}
+        {!loading ? (
+          data.map((item: any) => {
+            return (
+              <TouchableOpacity
+                key={item.number}
+                onPress={() => {
+                  navigation.navigate('SurahPage', {
+                    surahId: item.number,
+                    name: item.englishName,
+                  });
+                }}>
+                <CardList
+                  noSurah={item.number}
+                  name={item.name}
+                  nameTranslate={item.englishName}
+                  numberOfAyat={item.numberOfAyahs}
+                  city={item.revelationType}
+                />
+              </TouchableOpacity>
+            );
+          })
+        ) : (
+          <Text>Loading...</Text>
+        )}
       </ScrollView>
     </View>
   );
