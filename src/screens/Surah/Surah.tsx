@@ -1,9 +1,29 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView, Image} from 'react-native';
 
 const Surah = ({route}: any) => {
   const {name} = route.params;
+  const {surahId} = route.params;
+
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  const getDatas = async () => {
+    setLoading(true);
+    const response = await fetch(
+      'https://quran-api.santrikoding.com/api/surah/2',
+    );
+    const json = await response.json();
+    setData(json.data);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getDatas();
+  }, []);
+  console.log(data);
+
   return (
     <ScrollView>
       <View

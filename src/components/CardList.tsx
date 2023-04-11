@@ -2,7 +2,21 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 
-const CardList = () => {
+type Props = {
+  noSurah: number;
+  name: string;
+  nameTranslate: string;
+  numberOfAyat: number;
+  city: string;
+};
+
+const CardList = ({
+  name,
+  nameTranslate,
+  numberOfAyat,
+  noSurah,
+  city,
+}: Props) => {
   return (
     <View
       style={{
@@ -34,7 +48,7 @@ const CardList = () => {
           <Text
             style={{
               position: 'absolute',
-              fontSize: 18,
+              fontSize: 15,
               fontFamily: 'Poppins-SemiBold',
               color: '#240F4F',
               top: 2,
@@ -44,7 +58,7 @@ const CardList = () => {
               textAlign: 'center',
               textAlignVertical: 'center',
             }}>
-            1
+            {noSurah}
           </Text>
         </View>
         <View
@@ -57,7 +71,7 @@ const CardList = () => {
               fontSize: 16,
               color: '#240F4F',
             }}>
-            Al-Fatihah
+            {nameTranslate}
           </Text>
           <Text
             style={{
@@ -65,7 +79,7 @@ const CardList = () => {
               fontSize: 16,
               color: '#8789A3',
             }}>
-            Meccan &#183; 7 Ayat
+            {city} &#183; {numberOfAyat} Ayat
           </Text>
         </View>
       </View>
@@ -77,7 +91,7 @@ const CardList = () => {
           textAlign: 'right',
           color: '#863ED5',
         }}>
-        ةحتافلا
+        {name}
       </Text>
     </View>
   );

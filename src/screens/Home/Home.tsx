@@ -1,9 +1,27 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useState} from 'react';
 import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import CardList from '../../components/CardList';
 
 const Home = ({navigation}: any) => {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+
+  const getDatas = async () => {
+    setLoading(true);
+    const response = await fetch('http://api.alquran.cloud/v1/surah');
+    const json = await response.json();
+    setData(json.data);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getDatas();
+  }, []);
+
+  // console.log(data);
+
   return (
     <View
       style={{
@@ -112,15 +130,25 @@ const Home = ({navigation}: any) => {
           marginTop: 35,
         }}>
         {/* list surah card */}
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('SurahPage', {
-              surahId: 1,
-              name: 'Al-Fatihah',
-            });
-          }}>
-          <CardList />
-        </TouchableOpacity>
+        {data.map((item: any) => {
+          return (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('SurahPage', {
+                  surahId: item.number,
+                  name: item.englishName,
+                });
+              }}>
+              <CardList
+                noSurah={item.number}
+                name={item.name}
+                nameTranslate={item.englishName}
+                numberOfAyat={item.numberOfAyahs}
+                city={item.revelationType}
+              />
+            </TouchableOpacity>
+          );
+        })}
       </ScrollView>
     </View>
   );

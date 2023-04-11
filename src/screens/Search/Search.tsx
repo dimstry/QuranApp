@@ -55,7 +55,7 @@ const Search = ({navigation}: any) => {
                   name: 'Al-Fatihah',
                 });
               }}>
-              <CardList />
+              {/* <CardList /> */}
             </TouchableOpacity>
           </View>
         </ScrollView>
